@@ -1,5 +1,6 @@
+/* eslint-disable no-unused-vars */
 import React, {useState, useEffect} from "react";
-import ProjectCard from "components/ProjectCard"; 
+import ProjectCard from "../../components/ProjectCard"; 
 
 function Projects() {
 
