@@ -1,21 +1,23 @@
-import React, {useState, useEffect} from "react"; 
+import React from "react"; 
 
-function ProjectCard() {
+function ProjectCard(props) {
+
+    console.log('props', props);
 
     return (
-        <div className="rounded-lg m-3" id="card-container"> 
-        
-            {/* <project-card
-                v-for="(p, index) in projects"
-                :img="p.img"
-                :title="p.title"
-                :description="p.description"
-                :app="p.app"
-                :code="p.code"
-                :btnStyle="p.btnStyle"
-            ></project-card> */}
-            
-        </div>
+
+            <div className="card p-1 m-2">
+                <img src={props.image} alt="" className="card-img-top img-fluid p-2" />
+                <h5 className="card-title">{props.title}</h5>
+                <p className="card-text text-justify p-2">{props.description}
+                </p>
+                <a href={props.appLink} className="btn btn-primary btn-md m-1" target="_blank" rel="noreferrer" disabled={!props.appLink} >
+                    App
+                </a>
+                <a href={props.codeLink} className="btn btn-secondary btn-md m-1"  target="_blank" rel="noreferrer" disabled={!props.codeLink} >
+                    Code
+                </a>
+            </div>
     );
 };
 
