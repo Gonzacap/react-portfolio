@@ -1,10 +1,34 @@
+* {
+  font-family: 'Nunito', sans-serif;
+  color: #212529;
+}
+
+:root {
+  --celeste1: #AED6F1;
+  --celeste2: #56ccf2;
+  --rojo: rgba(231, 47, 47, 0.911);
+  --blanco-fondo: #f8f9fa;
+  --blanco-resaltado: #dfdfdf;
+  --amarillo: #ffc107;
+  --negro: #343a40;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, 'Nunito', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: var(--celeste1);  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, var(--celeste2), var(--celeste1), var(--celeste2));  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, var(--celeste2), var(--celeste1), var(--celeste2)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 code {
