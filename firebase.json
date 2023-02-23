@@ -1,6 +1,6 @@
 {
   "database": {
-    "rules": "./src/db/database.rules.json"
+    "rules": "./db/database.rules.json"
   },
   "hosting": {
     "public": "build",
@@ -17,6 +17,6 @@
     ]
   },
   "storage": {
-    "rules": "./src/db/storage.rules"
+    "rules": "./db/storage.rules"
   }
 }
