@@ -1,0 +1,14 @@
+ 
+:root {
+  --blanco-2: #f8f9fa;
+  --blanco-1: #dfdfdf;
+  --negro: #343a40;
+}
+
+.login_container {
+  background: var(--blanco-1);  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, var(--blanco-2), var(--blanco-1), var(--blanco-2));  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, var(--blanco-2), var(--blanco-1), var(--blanco-2)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  padding: 2rem;
+  margin: 25% auto;
+}
