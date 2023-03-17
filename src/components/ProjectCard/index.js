@@ -2,8 +2,6 @@ import React from "react";
 
 function ProjectCard(props) {
 
-    console.log('props', props);
-
     return (
 
             <div className="card p-1 m-2">
