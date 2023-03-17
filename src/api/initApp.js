@@ -4,11 +4,11 @@ import { getDatabase } from "firebase/database";
 
 // Initialize Firebase
 const app = initializeApp({
-    apiKey: process.env.FIREBASE_API_KEY,
-    authDomain: process.env.FIREBASE_AUTH_DOMAIN,
-    projectId: process.env.FIREBASE_PROJECT_ID,
-    storageBucket: process.env.FIREBASE_storageBucket,
-    messagingSenderId: process.env.FIREBASE_messagingSenderId,
+    apiKey: process.env.REACT_API_KEY,
+    authDomain: process.env.REACT_AUTH_DOMAIN,
+    projectId: process.env.REACT_PROJECT_ID,
+    storageBucket: process.env.REACT_storageBucket,
+    messagingSenderId: process.env.REACT_messagingSenderId,
     appId: process.env.REACT_APP_ID
   });
 
