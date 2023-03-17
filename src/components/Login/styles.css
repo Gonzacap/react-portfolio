@@ -1,9 +1,4 @@
- 
-:root {
-  --blanco-2: #f8f9fa;
-  --blanco-1: #dfdfdf;
-  --negro: #343a40;
-}
+@import url("../../index.css");
 
 .login_container {
   background: var(--blanco-1);  /* fallback for old browsers */

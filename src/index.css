@@ -17,19 +17,6 @@
   display: none;
 }
 
-html, body, #root {
-  height: 100%;
-}
-
-body {
-  margin: 0;
-  font-family: -apple-system, 'Nunito', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background: var(--celeste1);  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, var(--celeste2), var(--celeste1), var(--celeste2));  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, var(--celeste2), var(--celeste1), var(--celeste2)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

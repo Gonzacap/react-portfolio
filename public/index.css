@@ -1,0 +1,27 @@
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --celeste1: #AED6F1;
+    --celeste2: #56ccf2;
+}
+
+html, body {
+    min-height: 100%;
+    height: 100vh; /* Fallback for browsers that do not support Custom Properties */
+    height: calc(var(--vh, 1vh) * 100);
+}
+
+#root {
+    height: 90%;
+}
+
+body {
+    font-family: -apple-system, 'Nunito', sans-serif;
+    background: var(--celeste1);  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, var(--celeste2), var(--celeste1), var(--celeste2));  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, var(--celeste2), var(--celeste1), var(--celeste2)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
