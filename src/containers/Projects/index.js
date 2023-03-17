@@ -17,7 +17,6 @@ function Projects() {
         if(res){
             setProjects(res);
         }  
-        console.log('project', aux);
     }
     
     useEffect(() => {
