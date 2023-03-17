@@ -1,28 +1,36 @@
-/* eslint-disable no-unused-vars */
-import React, {useState, useEffect} from "react";
-import ProjectCard from "../../components/ProjectCard"; 
+import React, { useState, useEffect} from "react";
+import retrieveProjects from "../../api/retrieveProjects"; 
+
+// containers
+import ProjectCard from "../../components/ProjectCard";
+
+// styles
+import './styles.css';
 
 function Projects() {
 
-    const proj = [];
+    const [projects, setProjects] = useState(null);
 
-    const p = {
-        img:"img/img-12.jpg",
-        title:"Alas EJ Web",
-        description:"Como mienbro de Alas Empresa Junior participe en el desarrollo y mantenimiento de la página web. La misma esta realizada en WordpPress, Elementor y utiliza un SSL de Cloudflare", 
-        appLink:"https://alasempresajunior.com.ar",
-        codeLink:""
-    };
-
-    proj.push(p);
+    const loadProjects = async () => {
+        
+        let res  = await retrieveProjects();
+        if(res){
+            setProjects(res);
+        }  
+        console.log('project', aux);
+    }
+    
+    useEffect(() => {
+        loadProjects();
+    }, []);
 
     return (
         <>
-            <div className="sep" id="sep-title">
+            <div className="card_container" >
                 Projects
                 <div>
-                { proj && proj.map((p, i) => 
-                    <ProjectCard key={'projectCrad-'+i} props={{...p}} />
+                { projects && Object.keys(projects).map((key) => 
+                    <ProjectCard key={'projectCrad-'+key} props={{...projects[key]}} />
                 )}
                 </div>
             </div>
