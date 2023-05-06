@@ -8,7 +8,7 @@ const retriveProjects = async () => {
 
   return await get(child(dbRef, `projects`)).then((snapshot) => {
     if (snapshot.exists()) {
-      console.log('value: ', snapshot.val());
+      // console.log('value: ', snapshot.val());
       return (snapshot.val());
     } else {
       console.warn("No data available");

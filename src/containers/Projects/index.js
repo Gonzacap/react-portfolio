@@ -25,12 +25,16 @@ function Projects() {
 
     return (
         <>
-            <div className="card_container" >
-                Projects
-                <div>
-                { projects && Object.keys(projects).map((key) => 
-                    <ProjectCard key={'projectCrad-'+key} props={{...projects[key]}} />
-                )}
+            <div className=" container" >
+                <div className="row">
+                    <div className="col-8 offset-2 text-center bg bg-light rounded">
+                        <h2>Projects</h2>
+                    </div>
+                </div>
+                <div className="row">
+                    { projects && Object.keys(projects).map((key) =>
+                        <ProjectCard key={'projectCrad-'+key} {...projects[key]} />
+                    )}
                 </div>
             </div>
         </>
