@@ -1,11 +1,11 @@
-import React, {useState, useEffect} from "react";
+import React, {} from "react";
 // import style from "./style.css"; 
 
 function Navbar() {
 
     return (
             <nav className="navbar navbar-dark bg-dark" id="nav">
-                <a className="navbar-brand Brand" href="#" >
+                <a className="navbar-brand Brand" href="#main" >
                     <img 
                         src="img/img-nav.jpg" 
                         width="30" height="30" 
@@ -13,7 +13,7 @@ function Navbar() {
                         alt="" 
                         loading="lazy" 
                     />
-                    Desarrollador Fullstack - Programador proactivo
+                    Desarrollador Web Fullstack
                 </a>
             </nav>
     );

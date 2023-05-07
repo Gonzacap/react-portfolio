@@ -3,8 +3,8 @@ import React, {useState, useEffect} from "react";
 function Contact() {
 
     return (
-        <div className="">
-            <div className="row">
+        <section className="row py-2 my-2">
+
                 <div className="col-sm-12  offset-sm-0 col-md-8 offset-md-2 ">
                     <div className="card">
     
@@ -33,8 +33,8 @@ function Contact() {
     
                     </div>
                 </div>
-            </div>
-        </div>
+
+        </section>
     );
 };
 

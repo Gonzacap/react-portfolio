@@ -3,7 +3,7 @@ import React from "react";
 function ProjectCard({ image, title, description, appLink, codeLink}) {
 
     return (
-        <div className="col-4">
+        <div className="col-sm-10 col-md-4 col-lg-3">
             <div className="card p-1 m-2">
                 <img src={image} alt="" className="card-img-top img-fluid p-2" />
                 <h5 className="card-title p-1">
