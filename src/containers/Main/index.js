@@ -1,16 +1,21 @@
-import React, {useState, useEffect} from "react"; 
-
+import React, {} from "react"; 
 // Containers
 import Projects from '../Projects';
 import Technologies from '../Technologies';
 // Components
 import AboutMe from '../../components/AboutMe';
 import Contact from '../../components/Contact';
-import PresentationImage from '../../components/PresentationImage';
-// uI
+// import PresentationImage from '../../components/PresentationImage';
+// UI
 import Divider from '../../components/ui/Divider';
+// Contex
+import { useAuth } from '../../context/authContext';
+
 
 function Main() {
+
+    const auth = useAuth();
+    console.log('auth', auth);
 
     return (
         <main className="container">

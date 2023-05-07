@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+// eslint-disable-next-line no-unused-vars
+import { NavLink, useNavigate } from 'react-router-dom';
+
 // styles
 import './styles.css';
 
 function Login() {
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [user, setUser] = useState(null);
@@ -26,6 +31,7 @@ function Login() {
     if( resUser ){
         setUser(resUser);
         setError(null);
+        navigate("/");
     } else {
         setError('Oops!');
     }
@@ -44,7 +50,7 @@ function Login() {
                                 Welcome user!!
                             </label>
                         </div> 
-                    ) }
+                    )}
                 </div>
 
                 <div className="row">
