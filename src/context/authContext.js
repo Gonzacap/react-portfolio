@@ -24,10 +24,9 @@ export function AuthProvider ({children}) {
 
     useEffect(() => {
         onAuthStateChanged( auth, (currentUser) => {
-            console.log('currentUser', currentUser);
             setUser(currentUser);
         });
-    }, []);
+    }, [auth]);
 
     return (
         <AuthContext.Provider value={{login, logout, user}}>
