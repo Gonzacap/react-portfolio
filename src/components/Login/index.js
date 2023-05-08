@@ -1,41 +1,37 @@
 import React, { useState } from 'react';
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-// eslint-disable-next-line no-unused-vars
-import { NavLink, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
+// Context
+import { useAuth } from '../../context/authContext';
 
 // styles
 import './styles.css';
 
 function Login() {
-  const navigate = useNavigate();
+    const navigate = useNavigate();
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [user, setUser] = useState(null);
-  const [error, setError] = useState(null);
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState(null);
 
-  const auth = getAuth();
+    const {user, login, logout} = useAuth();
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+    const handleSubmit = async (event) => {
+        event.preventDefault();
 
-    let resUser = await signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => userCredential.user )
-        .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.error(errorCode, errorMessage);
-            return false;
-        });
+        login( email, password);
 
-    if( resUser ){
-        setUser(resUser);
-        setError(null);
-        navigate("/");
-    } else {
-        setError('Oops!');
-    }
-  };
+        if( user.uid ){
+            setError(null);
+            navigate("/");
+        } else {
+            setError('Oops!');
+        }
+    };
+
+    const handleLogout = () => {
+        logout();
+    };
 
   return (
     <div className="container container-fluid h-100">
@@ -44,7 +40,7 @@ function Login() {
             <div className="col-12 my-auto mx-auto"> 
 
                 <div className="row">
-                    { user && ( 
+                    { user?.uid && ( 
                         <div className="col-6 my-auto mx-auto" >
                             <label className="text-center mx-auto alert alert-success w-100" >
                                 Welcome user!!
@@ -81,6 +77,11 @@ function Login() {
                         <br />
                         <button className="btn btn-primary" type="submit">Log In</button>
                     </form>
+                    { user?.uid && (
+                        <form className="col-8 text-center mx-auto p-2" onSubmit={handleLogout}>
+                            <button className="btn btn-secondary" type="submit">Log Out</button>
+                        </form>
+                    )}
                 </div>
 
             </div>
