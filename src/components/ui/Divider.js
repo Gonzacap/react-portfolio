@@ -4,7 +4,7 @@ function Divider() {
 
     return (
         <>
-            <hr style={{width: '80%'}} />
+            <hr style={{width: '80%', margin: 'auto'}} />
         </>
     );
 };

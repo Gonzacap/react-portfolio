@@ -1,6 +1,7 @@
 import React, {} from "react"; 
 // Containers
 import Projects from '../Projects';
+// eslint-disable-next-line no-unused-vars
 import Technologies from '../Technologies';
 // Components
 import AboutMe from '../../components/AboutMe';
@@ -14,8 +15,7 @@ import { useAuth } from '../../context/authContext';
 
 function Main() {
 
-    const auth = useAuth();
-    console.log('auth', auth);
+    const { user } = useAuth();
 
     return (
         <main id="main" className="container">
@@ -24,7 +24,7 @@ function Main() {
             <Divider />
             <Projects />       
             <Divider />
-            <Technologies />
+            {/* <Technologies /> */}
             <Divider />
             <Contact />
         </main>

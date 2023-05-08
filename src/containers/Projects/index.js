@@ -42,8 +42,8 @@ function Projects() {
         try {
           if (!values.id) {
             console.log('agregar');
-            const aux = await addProjects();
-            console.log(aux);
+            const aux = await addProjects(values);
+            console.log('aux', aux);
           } else {
             console.log('editar');
           }
@@ -77,11 +77,13 @@ function Projects() {
                         <h2>Projects</h2>
                     </div>
                 </div>
-                <div className="row">
-                    <div className="col-8 offset-2 text-center bg bg-light rounded py-2 my-2">
-                        <EditForm {...{addUpdate, cancelUpdate, currentId}} values={values} setValues={setValues} />
+                { user?.uid && (
+                    <div className="row">
+                        <div className="col-8 offset-2 text-center bg bg-light rounded py-2 my-2">
+                            <EditForm {...{addUpdate, cancelUpdate, currentId}} values={values} setValues={setValues} />
+                        </div>
                     </div>
-                </div>
+                )}
                 <div className="row">
                     { projects && Object.keys(projects).map((key) =>
                         <ProjectCard key={'projectCrad-'+key} {...projects[key]} edit={user?.uid} setCurrentId={setCurrentId} />

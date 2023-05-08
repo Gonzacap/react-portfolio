@@ -35,7 +35,7 @@ const EditForm = ( { addUpdate, cancelUpdate, currentId, values, setValues } ) =
                 <input
                     type="text"
                     value={values.image}
-                    name="imgage"
+                    name="image"
                     placeholder="Image URL"
                     className="form-control"
                     onChange={handleInputChange}
