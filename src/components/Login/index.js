@@ -21,7 +21,7 @@ function Login() {
 
         login( email, password);
 
-        if( user.uid ){
+        if( user?.uid ){
             setError(null);
             navigate("/");
         } else {
