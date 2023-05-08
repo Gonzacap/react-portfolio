@@ -1,20 +1,27 @@
 import React from "react";
-// import { getAuth } from "firebase/auth";
+import { BrowserRouter, Route, Routes, } from 'react-router-dom';
 // Containers
 import Main from './containers/Main';
 // Components
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
+import Login from './components/Login';
 // Context
 import { AuthProvider } from './context/authContext';
+
 
 function App() {
   return (
     <>
       <AuthProvider>
-        <Navbar />
-        <Main />
-        <Footer />
+        <BrowserRouter>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Main />} />
+            <Route path="login" element={<Login />} />
+          </Routes>
+          <Footer />
+        </BrowserRouter>
       </AuthProvider>
     </>
   );
