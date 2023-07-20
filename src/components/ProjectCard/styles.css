@@ -1,0 +1,19 @@
+.card-img-container {
+  width: 100%;
+  max-width: 250px;
+  height: 300px;
+  margin: auto;
+  overflow: hidden;
+}
+
+/* .collapse {
+  display: none;
+}
+  
+.read-more-link::after {
+  content: '...';
+}
+  
+.read-more-link[aria-expanded="true"]::after {
+  content: '';
+} */
