@@ -15,14 +15,17 @@ function Contact() {
     
                             <form action="https://formspree.io/f/xgepbnej" method="POST">
     
-                                <div className="form-group">
+                                <div className="input-group my-2">
                                     <input type="text" className="form-control" placeholder="email" name="_replyto" required />
                                 </div>
-                                <div className="form-group">
+                                <div className="input-group my-2">
                                     <textarea cols="30" rows="5" className="form-control" placeholder="Tu Mensaje" name="message" required></textarea>
                                 </div>
-                                <div className="form-group">
-                                    <button type="submit" className="btn btn-primary btn-block">
+                                <div className="input-group my-2">
+                                    <input type="file" className="form-control" placeholder="Adjuntar archivo" name="upload" />
+                                </div>
+                                <div className="form-group my-2 text-center">
+                                    <button type="submit" className="btn btn-primary btn-block px-5">
                                         Enviar
                                     </button>
                                 </div>
