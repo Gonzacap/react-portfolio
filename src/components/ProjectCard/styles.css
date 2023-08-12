@@ -6,14 +6,18 @@
   overflow: hidden;
 }
 
-/* .collapse {
-  display: none;
+.card-h {
+  height: 11.5rem;
 }
-  
-.read-more-link::after {
-  content: '...';
+
+.expanded {
+  height: auto !important;
 }
-  
-.read-more-link[aria-expanded="true"]::after {
-  content: '';
-} */
+
+.card-text{
+  height: 7.5rem;
+}
+
+.btn-link:focus {
+  box-shadow: none !important;
+}

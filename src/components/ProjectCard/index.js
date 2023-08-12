@@ -1,4 +1,4 @@
-import React from "react"; 
+import React, {useState} from "react"; 
 
 // styles
 import './styles.css';
@@ -6,6 +6,13 @@ import './styles.css';
 const Default_Image = "https://firebasestorage.googleapis.com/v0/b/portfolio-2cf5a.appspot.com/o/test-image.png?alt=media&token=8b9399cc-2f06-468e-b3d0-55114c66a3e1";
 
 function ProjectCard({ id, enable, image, title, description, appLink, codeLink, edit, setCurrentId}) {
+
+    const [expanded, setExpanded] = useState(false);
+    
+    const maxLength = 100;
+    const shortDescription = description.length > maxLength ? description.substring(0, maxLength - 10) + '...' : description;
+  
+    const toggleExpanded = () => setExpanded(!expanded);
 
     return enable ? (
         <div className="col-12 col-sm-10 col-md-6 col-lg-4 col-xl-3 offset-sm-1 offset-md-0">
@@ -20,16 +27,20 @@ function ProjectCard({ id, enable, image, title, description, appLink, codeLink,
                         
                     />
                 </div>
-                <div className="card-body">
+                <div className={expanded ? "card-body card-h expanded" : "card-body card-h"}>
                     <h5 className="card-title">
                         {title}
                     </h5>
-                    <p className="card-text text-justify">    
-                        <span className={"collapse"+id} id={"more"+id}>
-                            {description}
-                        </span>
-                        {/* <a className="read-more-link" data-bs-toggle={"collapse"+id} href={"#more"+id} aria-expanded="false" aria-controls={"more"+id} >... Ver Más</a> */}
-                    </p>
+                    <div className={expanded ? "card-text expanded" : "card-text"}>
+                        <p className="text-justify">    
+                            {expanded ? description : shortDescription}
+                            {description.length > maxLength && (
+                                <button onClick={toggleExpanded} className="btn btn-link p-0">
+                                    {expanded ? 'Ver menos' : 'Ver más'}
+                                </button>
+                            )}
+                        </p>
+                    </div>
                 </div>
                 <a href={appLink} className="btn btn-primary btn-md m-1" target="_blank" rel="noreferrer" disabled={!appLink} >
                     App
