@@ -3,3 +3,24 @@
     grid-template-columns: 1fr 1fr 1fr;
     padding: 20px 10px ;
 }
+
+.card-row {
+    overflow-x: scroll;
+}
+  
+.card-row::-webkit-scrollbar {
+    display: block;
+    height: 2rem;
+}
+
+.card-row::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px whitesmoke;
+    border-radius: 0.25px;
+    background-color: rgba(245, 245, 245, 0.5);
+}
+
+.card-row::-webkit-scrollbar-thumb {
+    border-radius: 100%;
+    background-color:whitesmoke;
+    -webkit-box-shadow: inset 0 0 6px grey;
+}

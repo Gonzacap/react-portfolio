@@ -71,8 +71,8 @@ function Projects() {
 
     return (
         <>
-            <div className=" container" >
-                <div className="row">
+            <div className="container" >
+                <div className="row ">
                     <div className="col-8 offset-2 text-center bg bg-light rounded py-2 my-2">
                         <h2>Projects</h2>
                     </div>
@@ -84,7 +84,7 @@ function Projects() {
                         </div>
                     </div>
                 )}
-                <div className="row">
+                <div className="card-row row flex-nowrap flex-md-wrap mb-3">
                     { projects && Object.keys(projects).map((key) =>
                         <ProjectCard key={'projectCrad-'+key} {...projects[key]} edit={user?.uid} setCurrentId={setCurrentId} />
                     )}
