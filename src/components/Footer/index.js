@@ -1,10 +1,10 @@
-import React, {useState, useEffect} from "react"; 
+import React from "react"; 
 
 function Footer() {
 
     return (
         <footer className="bg-ligth text-center p2">
-            <p className="h6">Gonza López / Gonzacap 2021 &copy;</p>
+            <p className="h6">Gonza López / Gonzacap</p>
         </footer>
     );
 };
