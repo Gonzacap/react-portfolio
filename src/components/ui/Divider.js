@@ -1,10 +1,10 @@
-import React, {useState, useEffect} from "react"; 
+import React from "react"; 
 
 function Divider() {
 
     return (
         <>
-            <hr style={{width: '80%', margin: 'auto'}} />
+            <hr style={{height: '0', background: 'none'}} />
         </>
     );
 };
