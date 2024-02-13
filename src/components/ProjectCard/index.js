@@ -7,6 +7,9 @@ const Default_Image = "https://firebasestorage.googleapis.com/v0/b/portfolio-2cf
 
 function ProjectCard({ id, enable, image, title, description, appLink, codeLink, edit, setCurrentId}) {
 
+    const appLinkValid = appLink && appLink !== '';
+    const codeLinkValid = codeLink && codeLink !== '';
+
     const [expanded, setExpanded] = useState(false);
     
     const maxLength = 100;
@@ -42,10 +45,10 @@ function ProjectCard({ id, enable, image, title, description, appLink, codeLink,
                         </p>
                     </div>
                 </div>
-                <a href={appLink} className="btn btn-primary btn-md m-1" target="_blank" rel="noreferrer" disabled={!appLink} >
+                <a href={appLinkValid ? appLink : ''} className={"btn " + ( appLinkValid ? 'btn-primary' : 'btn-danger disabled' ) + " btn-md m-1 "} target="_blank" rel="noreferrer" >
                     App
                 </a>
-                <a href={codeLink} className="btn btn-secondary btn-md m-1"  target="_blank" rel="noreferrer" disabled={!codeLink} >
+                <a href={codeLinkValid ? codeLink : ''} className={"btn " + ( codeLinkValid ? 'btn-secondary' : 'btn-danger disabled' ) + " btn-md m-1"}  target="_blank" rel="noreferrer" >
                     Code
                 </a>
                 
