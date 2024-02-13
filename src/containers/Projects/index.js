@@ -71,31 +71,29 @@ function Projects() {
 
     return (
         <>
-            <div className="container" >
-                <div className="row ">
+            <div className="row ">
+                <div className="col-8 offset-2 text-center bg bg-light rounded py-2 my-2">
+                    <h2>Projects</h2>
+                </div>
+            </div>
+            { user?.uid && (
+                <div className="row">
                     <div className="col-8 offset-2 text-center bg bg-light rounded py-2 my-2">
-                        <h2>Projects</h2>
+                        <EditForm {...{addUpdate, cancelUpdate, currentId}} values={values} setValues={setValues} />
                     </div>
                 </div>
-                { user?.uid && (
-                    <div className="row">
-                        <div className="col-8 offset-2 text-center bg bg-light rounded py-2 my-2">
-                            <EditForm {...{addUpdate, cancelUpdate, currentId}} values={values} setValues={setValues} />
+            )}
+            <div className="card-row row flex-nowrap flex-md-wrap mb-3">
+                {!projects && (
+                    <div className="col-12 spinner-container">
+                        <div className="spinner-border spinner-lg text-primary" role="status">
+                            <span className="visually-hidden">Loading...</span>
                         </div>
                     </div>
                 )}
-                <div className="card-row row flex-nowrap flex-md-wrap mb-3">
-                    {!projects && (
-                        <div className="col-12 spinner-container">
-                            <div className="spinner-border spinner-lg text-primary" role="status">
-                                <span className="visually-hidden">Loading...</span>
-                            </div>
-                        </div>
-                    )}
-                    { projects && Object.keys(projects).map((key) =>
-                        <ProjectCard key={'projectCrad-'+key} {...projects[key]} edit={user?.uid} setCurrentId={setCurrentId} />
-                    )}
-                </div>
+                { projects && Object.keys(projects).map((key) =>
+                    <ProjectCard key={'projectCrad-'+key} {...projects[key]} edit={user?.uid} setCurrentId={setCurrentId} />
+                )}
             </div>
         </>
     );
