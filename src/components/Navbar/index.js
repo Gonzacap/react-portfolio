@@ -5,7 +5,7 @@ function Navbar() {
 
     return (
             <nav className="navbar navbar-dark bg-dark" id="nav">
-                <a className="navbar-brand Brand" href="#main" >
+                <a className="navbar-brand brand px-3" href="/" >
                     {/* <img 
                         src="img/img-nav.jpg" 
                         width="30" height="30" 
