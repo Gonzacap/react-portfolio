@@ -31,7 +31,7 @@ function ProjectCard({ id, enable, image, title, description, appLink, codeLink,
                     />
                 </div>
                 <div className={expanded ? "card-body card-h expanded" : "card-body card-h"}>
-                    <h5 className="card-title">
+                    <h5 className="card-title text-wrap">
                         {title}
                     </h5>
                     <div className={expanded ? "card-text expanded" : "card-text"}>
