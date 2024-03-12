@@ -83,17 +83,19 @@ function Projects() {
                     </div>
                 </div>
             )}
-            <div className="card-row row flex-nowrap flex-md-wrap mb-3">
-                {!projects && (
-                    <div className="col-12 spinner-container">
-                        <div className="spinner-border spinner-lg text-primary" role="status">
-                            <span className="visually-hidden">Loading...</span>
+            <div className="scroller">
+                <div className="card-row row flex-nowrap flex-md-wrap mb-3">
+                    {!projects && (
+                        <div className="col-12 spinner-container">
+                            <div className="spinner-border spinner-lg text-primary" role="status">
+                                <span className="visually-hidden">Loading...</span>
+                            </div>
                         </div>
-                    </div>
-                )}
-                { projects && Object.keys(projects).map((key) =>
-                    <ProjectCard key={'projectCrad-'+key} {...projects[key]} edit={user?.uid} setCurrentId={setCurrentId} />
-                )}
+                    )}
+                    { projects && Object.keys(projects).map((key) =>
+                        <ProjectCard key={'projectCrad-'+key} {...projects[key]} edit={user?.uid} setCurrentId={setCurrentId} />
+                    )}
+                </div>
             </div>
         </>
     );

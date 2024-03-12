@@ -1,11 +1,29 @@
+@supports selector(::-webkit-scrollbar) {
+    .scroller::-webkit-scrollbar {
+        height: 0.5rem;
+        padding: 0.25rem;
+        margin: auto;
+        scrollbar-gutter: initial;
+    }
+    .scroller::-webkit-scrollbar-thumb {
+      background: cornflowerblue;
+      border-radius: 5px;
+    }
+    .scroller::-webkit-scrollbar-track {
+        background: whitesmoke;
+        border-radius: 10px;
+    }
+}
+
+.scroller {
+    height: auto;
+    overflow-x: scroll;
+}
+
 .card_container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     padding: 20px 10px ;
-}
-
-.card-row {
-    overflow-x: scroll;
 }
 
 .spinner-container {
@@ -22,20 +40,4 @@
 }
   
 @media screen and (max-width: 992px) {
-    .card-row::-webkit-scrollbar {
-        display: block;
-        height: 2rem;
-    }
-    
-    .card-row::-webkit-scrollbar-track {
-        -webkit-box-shadow: inset 0 0 6px whitesmoke;
-        border-radius: 25px;
-        background-color: rgba(245, 245, 245, 0.5);
-    }
-    
-    .card-row::-webkit-scrollbar-thumb {
-        border-radius: 100%;
-        background-color:whitesmoke;
-        -webkit-box-shadow: inset 0 0 6px grey;
-    }
 }
