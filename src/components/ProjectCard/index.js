@@ -35,7 +35,7 @@ function ProjectCard({ id, enable, image, title, description, appLink, codeLink,
                         {title}
                     </h5>
                     <div className={expanded ? "card-text expanded" : "card-text"}>
-                        <p className="text-justify">    
+                        <p className="text-justify text-wrap">    
                             {expanded ? description : shortDescription}
                             {description.length > maxLength && (
                                 <button onClick={toggleExpanded} className="btn btn-link p-0">
