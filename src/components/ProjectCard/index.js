@@ -39,7 +39,7 @@ function ProjectCard({ id, enable, image, title, description, appLink, codeLink,
                             {expanded ? description : shortDescription}
                             {description.length > maxLength && (
                                 <button onClick={toggleExpanded} className="btn btn-link p-0">
-                                    {expanded ? 'Ver menos' : 'Ver más'}
+                                    {expanded ? ' Ver menos' : ' Ver más'}
                                 </button>
                             )}
                         </p>
