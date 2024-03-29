@@ -39,5 +39,8 @@
     border-width: 0.5em;
 }
   
-@media screen and (max-width: 992px) {
+@media screen and (min-width: 992px) {
+    .scroller::-webkit-scrollbar {
+        display: none;
+    }
 }
