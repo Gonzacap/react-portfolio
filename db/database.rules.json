@@ -1,9 +1,13 @@
 {
   "rules": {
-    "projects":{
-    ".read": true,
-    ".write": "auth!=null"
-  	},
+    "projects": {
+      ".read": true,
+      ".write": "auth!=null"
+    },
+    "experiences": {
+      ".read": true,
+      ".write": "auth!=null"
+    },
     ".read": false,
     ".write": false
   }
