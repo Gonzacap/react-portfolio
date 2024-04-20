@@ -1,78 +1,90 @@
-import React, { useState } from "react";
-
+import React, { useState, useEffect } from "react";
+import * as bootstrap from 'bootstrap/dist/js/bootstrap.bundle.min.js';
 // styles
 import './styles.css';
 
 
-function ExperienceCard({ id, enable, project, description, setCurrentId }) {
+function ExperienceCard({ id, status, project, technologies, description, rol, setCurrentId }) {
 
-    return enable ? (
+    useEffect(() => {
+        const accordionElement = document.getElementById(`accordion-${id}`);
+        const bsCollapse = new bootstrap.Collapse(accordionElement);
+
+        return () => {
+            bsCollapse.dispose();
+        };
+    }, [id]);
+
+    return status ? (
         <>
-            <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
-                <div class="card-header">{project}</div>
-                <div class="card-body">
-                    <div class="accordion accordion-flush" id="">
-                        <div class="accordion-item">
-                            <p class="h2 accordion-header" id={`${id}-head-teach`}>
+            <div className="card text-white mb-3">
+                <div className="card-header">{project}</div>
+                <div className="card-body">
+                    <div className="accordion accordion-flush" id={`accordion-${id}`}>
+                        <div className="accordion-item">
+                            <p className="h2 accordion-header" id={`head-teach-${id}`}>
                                 <button
-                                    class="accordion-button collapsed"
+                                    className="accordion-button collapsed"
                                     type="button"
                                     data-bs-toggle="collapse"
-                                    data-bs-target={`#${id}-collapse-tech`}
+                                    data-bs-target={`#collapse-tech-${id}`}
                                     aria-expanded="false"
-                                    aria-controls={`#${id}-collapse-tech`}
+                                    aria-controls={`#collapse-tech-${id}`}
                                 >
                                     Tecnologias
                                 </button>
                             </p>
                             <div
-                                id={`${id}-collapse-tech`}
-                                class="accordion-collapse collapse"
-                                aria-labelledby={`${id}-head-teach`}
+                                id={`collapse-tech-${id}`}
+                                className="accordion-collapse collapse"
+                                aria-labelledby={`head-teach-${id}`}
+                                data-bs-parent={`accordion-${id}`}
                             >
-                                <div class="accordion-body">{technologies}</div>
+                                <div className="accordion-body">{technologies}</div>
                             </div>
                         </div>
-                        <div class="accordion-item">
-                            <p class="h2 accordion-header" id={`${id}-head-desc`}>
+                        <div className="accordion-item">
+                            <p className="h2 accordion-header" id={`head-desc-${id}`}>
                                 <button
-                                    class="accordion-button collapsed"
+                                    className="accordion-button collapsed"
                                     type="button"
                                     data-bs-toggle="collapse"
-                                    data-bs-target={`#${id}-collapse-desc`}
+                                    data-bs-target={`#collapse-desc-${id}`}
                                     aria-expanded="false"
-                                    aria-controls={`#${id}-collapse-desc`}
+                                    aria-controls={`#collapse-desc-${id}`}
                                 >
                                     Descripción
                                 </button>
                             </p>
                             <div
-                                id={`${id}-collapse-desc`}
-                                class="accordion-collapse collapse"
-                                aria-labelledby={`${id}-head-desc`}
+                                id={`collapse-desc-${id}`}
+                                className="accordion-collapse collapse"
+                                aria-labelledby={`head-desc-${id}`}
+                                data-bs-parent={`accordion-${id}`}
                             >
-                                <div class="accordion-body">{description}</div>
+                                <div className="accordion-body">{description}</div>
                             </div>
                         </div>
-                        <div class="accordion-item">
-                            <p class="h2 accordion-header" id={`${id}-head-rol`}>
+                        <div className="accordion-item">
+                            <p className="h2 accordion-header" id={`head-rol-${id}`}>
                                 <button
-                                    class="accordion-button collapsed"
+                                    className="accordion-button collapsed"
                                     type="button"
                                     data-bs-toggle="collapse"
-                                    data-bs-target={`#${id}-collapse-rol`}
+                                    data-bs-target={`#collapse-rol-${id}`}
                                     aria-expanded="false"
-                                    aria-controls={`#${id}-collapse-rol`}
+                                    aria-controls={`#collapse-rol-${id}`}
                                 >
-                                    Acordeón artículo #3
+                                    Rol
                                 </button>
                             </p>
                             <div
-                                id={`${id}-collapse-rol`}
-                                class="accordion-collapse collapse"
-                                aria-labelledby={`#${id}-head-rol`}
+                                id={`collapse-rol-${id}`}
+                                className="accordion-collapse collapse"
+                                aria-labelledby={`#head-rol-${id}`}
+                                data-bs-parent={`accordion-${id}`}
                             >
-                                <div class="accordion-body">{rol}</div>
+                                <div className="accordion-body">{rol}</div>
                             </div>
                         </div>
                     </div>

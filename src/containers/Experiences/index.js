@@ -17,17 +17,27 @@ function Experiences() {
 
     const initialStateValues = {
         id: null,
-        title: '',
+        project: '',
         technologies: '',
         description: '',
         rol: '',
+        status: true,
     };
 
     const [values, setValues] = useState(initialStateValues);
 
     const loadExperiences = async () => {
 
-        let res = []; // await retrieveExperiences();
+        let mock = {
+            id: "123",
+            project: "Sistema de Gestión de Producción",
+            technologies: "react, redux, semantic-ui, cypress, node, websockets, jquery, postman, propel, mysql, symphony, micro servicios",
+            description: "Era un sistema de gestion de produccion para una fabrica metalmecanica, el mismo estaba compuestos un gran sistema legacy en php el cual contenia el admin dashboard y la db de la aplicacion; un cliente en react; y un middleware en node que cumplia la funcion un servicio de sincronización de datos en tiempo real.",
+            rol: "asdasdads",
+            status: true,
+        }
+
+        let res = [mock]; // await retrieveExperiences();
         if (res) {
             setExperiences(res);
         }
@@ -71,19 +81,19 @@ function Experiences() {
                     <h2>Experiences</h2>
                 </div>
             </div>
-            <div className="scroller">
-                <div className="card-row row flex-nowrap flex-md-wrap mb-3">
-                    {!experiences && (
-                        <div className="col-12 spinner-container">
-                            <div className="spinner-border spinner-lg text-primary" role="status">
-                                <span className="visually-hidden">Loading...</span>
-                            </div>
+            <div className="row my-4">
+                {!experiences && (
+                    <div className="col-12 spinner-container">
+                        <div className="spinner-border spinner-lg text-primary" role="status">
+                            <span className="visually-hidden">Loading...</span>
                         </div>
-                    )}
-                    {experiences && Object.keys(experiences).map((key) =>
+                    </div>
+                )}
+                {experiences && Object.keys(experiences).map((key) =>
+                    <div key={'experienceCrad-' + key + '-col'} className="col-12 col-lg-6">
                         <ExperienceCard key={'experienceCrad-' + key} {...experiences[key]} setCurrentId={setCurrentId} />
-                    )}
-                </div>
+                    </div>
+                )}
             </div>
         </>
     );

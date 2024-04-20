@@ -1,8 +1,9 @@
-import React, {} from "react"; 
+import React, { } from "react";
 // Containers
 import Projects from '../Projects';
 // eslint-disable-next-line no-unused-vars
 import Technologies from '../Technologies';
+import Experiences from '../Experiences';
 // Components
 import AboutMe from '../../components/AboutMe';
 import Contact from '../../components/Contact';
@@ -22,10 +23,11 @@ function Main() {
             {/* <PresentationImage /> */}
             <AboutMe />
             <Divider />
-            <Projects />       
+            <Projects />
             <Divider />
             {/* <Technologies /> */}
             <Divider />
+            <Experiences />
             <Contact />
         </main>
     );

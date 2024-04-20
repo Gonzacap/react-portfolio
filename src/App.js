@@ -10,6 +10,7 @@ import Login from './components/Login';
 import { AuthProvider } from './context/authContext';
 // Styles
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 
 function App() {
