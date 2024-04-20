@@ -38,15 +38,9 @@ function Projects() {
         }
     }
 
-    const addUpdate = async (currentId) => {
+    const addUpdate = async () => {
         try {
-            if (!values.id) {
-                console.log('agregar');
-                const aux = await addProjects(values);
-                console.log('aux', aux);
-            } else {
-                console.log('editar');
-            }
+            await addProjects(values);
         } catch (error) {
             console.error(error);
         }
