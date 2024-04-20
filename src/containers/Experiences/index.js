@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 
 // Components
 import ExperienceCard from "../../components/ExperienceCard";
+import ExperienceForm from "../../components/ExperienceForm";
 
 // Context
 import { useAuth } from "../../context/authContext";
@@ -81,6 +82,13 @@ function Experiences() {
                     <h2>Experiencias Laborales</h2>
                 </div>
             </div>
+            {user?.uid && (
+                <div className="row">
+                    <div className="col-8 offset-2 text-center bg bg-light rounded py-2 my-2">
+                        <ExperienceForm {...{ addUpdate, cancelUpdate, exp: values, setExperience: setValues }} />
+                    </div>
+                </div>
+            )}
             <div className="row my-4">
                 {!experiences && (
                     <div className="col-12 spinner-container">
