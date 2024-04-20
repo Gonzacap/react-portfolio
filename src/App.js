@@ -8,6 +8,8 @@ import Navbar from './components/Navbar';
 import Login from './components/Login';
 // Context
 import { AuthProvider } from './context/authContext';
+// Styles
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {
