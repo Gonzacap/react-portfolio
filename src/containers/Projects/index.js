@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import retrieveProjects from "../../api/retrieveProjects";
 import addProjects from "../../api/addProjects";
 
@@ -16,7 +16,7 @@ function Projects() {
 
     const [projects, setProjects] = useState(null);
     const [currentId, setCurrentId] = useState(null);
-    const {user} = useAuth();
+    const { user } = useAuth();
 
     const initialStateValues = {
         appLink: '',
@@ -31,41 +31,41 @@ function Projects() {
     const [values, setValues] = useState(initialStateValues);
 
     const loadProjects = async () => {
-        
-        let res  = await retrieveProjects();
-        if(res){
+
+        let res = await retrieveProjects();
+        if (res) {
             setProjects(res);
-        }  
+        }
     }
 
     const addUpdate = async (currentId) => {
         try {
-          if (!values.id) {
-            console.log('agregar');
-            const aux = await addProjects(values);
-            console.log('aux', aux);
-          } else {
-            console.log('editar');
-          }
+            if (!values.id) {
+                console.log('agregar');
+                const aux = await addProjects(values);
+                console.log('aux', aux);
+            } else {
+                console.log('editar');
+            }
         } catch (error) {
-          console.error(error);
+            console.error(error);
         }
 
-        setValues({...initialStateValues})
+        setValues({ ...initialStateValues })
     };
 
     const cancelUpdate = () => {
         setCurrentId(null);
-        setValues({...initialStateValues});
+        setValues({ ...initialStateValues });
     };
-    
+
     useEffect(() => {
         loadProjects();
     }, []);
 
     useEffect(() => {
-        if(currentId){
-            setValues({...projects[currentId]});
+        if (currentId) {
+            setValues({ ...projects[currentId] });
         }
     }, [currentId]);
 
@@ -73,13 +73,13 @@ function Projects() {
         <>
             <div className="row ">
                 <div className="col-8 offset-2 text-center bg bg-light rounded py-2 my-2">
-                    <h2>Projects</h2>
+                    <h2>Proyectos</h2>
                 </div>
             </div>
-            { user?.uid && (
+            {user?.uid && (
                 <div className="row">
                     <div className="col-8 offset-2 text-center bg bg-light rounded py-2 my-2">
-                        <EditForm {...{addUpdate, cancelUpdate, currentId}} values={values} setValues={setValues} />
+                        <EditForm {...{ addUpdate, cancelUpdate, currentId }} values={values} setValues={setValues} />
                     </div>
                 </div>
             )}
@@ -92,8 +92,8 @@ function Projects() {
                             </div>
                         </div>
                     )}
-                    { projects && Object.keys(projects).map((key) =>
-                        <ProjectCard key={'projectCrad-'+key} {...projects[key]} edit={user?.uid} setCurrentId={setCurrentId} />
+                    {projects && Object.keys(projects).map((key) =>
+                        <ProjectCard key={'projectCrad-' + key} {...projects[key]} edit={user?.uid} setCurrentId={setCurrentId} />
                     )}
                 </div>
             </div>

@@ -78,7 +78,7 @@ function Experiences() {
         <>
             <div className="row ">
                 <div className="col-8 offset-2 text-center bg bg-light rounded py-2 my-2">
-                    <h2>Experiences</h2>
+                    <h2>Experiencias Laborales</h2>
                 </div>
             </div>
             <div className="row my-4">

@@ -18,7 +18,7 @@ function ExperienceCard({ id, status, project, technologies, description, rol, s
     return status ? (
         <>
             <div className="card text-white mb-3">
-                <div className="card-header">{project}</div>
+                <div className="card-header">Proyecto: {project}</div>
                 <div className="card-body">
                     <div className="accordion accordion-flush" id={`accordion-${id}`}>
                         <div className="accordion-item">
