@@ -1,6 +1,6 @@
 import { getDatabase, ref, child, get } from "firebase/database";
 
-const retriveExperiences = async () => {
+const retrieveExperiences = async () => {
 
     const dbRef = ref(getDatabase());
 
@@ -17,4 +17,4 @@ const retriveExperiences = async () => {
         });
 }
 
-export default retriveExperiences;
+export default retrieveExperiences;

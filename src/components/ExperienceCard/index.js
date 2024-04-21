@@ -4,14 +4,20 @@ import * as bootstrap from 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './styles.css';
 
 
-function ExperienceCard({ id, status, project, technologies, description, rol, setCurrentId }) {
+function ExperienceCard({ id, status, project, technologies, description, rol }) {
 
     useEffect(() => {
         const accordionElement = document.getElementById(`accordion-${id}`);
-        const bsCollapse = new bootstrap.Collapse(accordionElement);
+        let bsCollapse = null;
+
+        if (accordionElement) {
+            bsCollapse = new bootstrap.Collapse(accordionElement);
+        }
 
         return () => {
-            bsCollapse.dispose();
+            if (bsCollapse) {
+                bsCollapse.dispose();
+            }
         };
     }, [id]);
 

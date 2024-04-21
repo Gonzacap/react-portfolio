@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import retrieveExperiences from "../../api/retrieveExperiences";
+import addExperiences from "../../api/addExperiences";
 
 // Components
 import ExperienceCard from "../../components/ExperienceCard";
@@ -29,33 +31,19 @@ function Experiences() {
 
     const loadExperiences = async () => {
 
-        let mock = {
-            id: "123",
-            project: "Sistema de Gestión de Producción",
-            technologies: "react, redux, semantic-ui, cypress, node, websockets, jquery, postman, propel, mysql, symphony, micro servicios",
-            description: "Era un sistema de gestion de produccion para una fabrica metalmecanica, el mismo estaba compuestos un gran sistema legacy en php el cual contenia el admin dashboard y la db de la aplicacion; un cliente en react; y un middleware en node que cumplia la funcion un servicio de sincronización de datos en tiempo real.",
-            rol: "asdasdads",
-            status: true,
-        }
+        let res = await retrieveExperiences();
 
-        let res = [mock]; // await retrieveExperiences();
         if (res) {
             setExperiences(res);
         }
     }
 
-    const addUpdate = async (currentId) => {
-        /* try {
-            if (!values.id) {
-                console.log('agregar');
-                const aux = await addExperiences(values);
-                console.log('aux', aux);
-            } else {
-                console.log('editar');
-            }
+    const addUpdate = async () => {
+        try {
+            await addExperiences(values);
         } catch (error) {
             console.error(error);
-        } */
+        }
 
         setValues({ ...initialStateValues })
     };
@@ -99,7 +87,7 @@ function Experiences() {
                 )}
                 {experiences && Object.keys(experiences).map((key) =>
                     <div key={'experienceCrad-' + key + '-col'} className="col-12 col-lg-6">
-                        <ExperienceCard key={'experienceCrad-' + key} {...experiences[key]} setCurrentId={setCurrentId} />
+                        <ExperienceCard key={'experienceCrad-' + key} {...experiences[key]} />
                     </div>
                 )}
             </div>
