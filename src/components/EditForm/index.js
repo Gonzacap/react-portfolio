@@ -1,9 +1,10 @@
 import React from "react";
 
-const EditForm = ( { addUpdate, cancelUpdate, currentId, values, setValues } ) => {
+const EditForm = ({ addUpdate, cancelUpdate, currentId, values, setValues }) => {
 
     const handleInputChange = (e) => {
-        const { name, value } = e.target;
+        const { name, value, type, checked } = e.target;
+        const newValue = type === 'checkbox' ? checked : value;
         setValues({ ...values, [name]: value });
     };
 
@@ -19,7 +20,7 @@ const EditForm = ( { addUpdate, cancelUpdate, currentId, values, setValues } ) =
 
     return (
         <form onSubmit={handleSubmit}>
-            <h3 className="h3">{currentId ? "Update Project" : "Add Project" }</h3>
+            <h3 className="h3">{currentId ? "Update Project" : "Add Project"}</h3>
             <div className="form-group input-group">
                 <input
                     type="text"
@@ -83,16 +84,16 @@ const EditForm = ( { addUpdate, cancelUpdate, currentId, values, setValues } ) =
                 <label className="form-check-label" >Enable</label>
             </div>
             <button className="btn btn-primary btn-block">
-                { currentId ? "Update" : "Add" }
+                {currentId ? "Update" : "Add"}
             </button>
-            { currentId && (
-                <button 
+            {currentId && (
+                <button
                     className="btn btn-secondary btn-block"
                     onClick={handleCancel}
                 >
-                Cancel
+                    Cancel
                 </button>
-            ) }
+            )}
         </form>
     );
 };
