@@ -3,7 +3,8 @@ import React from "react";
 const ExperienceForm = ({ addUpdate, cancelUpdate, exp, setExperience }) => {
 
     const handleInputChange = (e) => {
-        const { name, value } = e.target;
+        const { name, value, type, checked } = e.target;
+        const newValue = type === 'checkbox' ? checked : value;
         setExperience({ ...exp, [name]: value });
     };
 

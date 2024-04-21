@@ -37,7 +37,7 @@ function ExperienceCard({ id, status, project, technologies, description, rol })
                                     aria-expanded="false"
                                     aria-controls={`#collapse-tech-${id}`}
                                 >
-                                    Tecnologias
+                                    Tecnologias y Herramientas
                                 </button>
                             </p>
                             <div

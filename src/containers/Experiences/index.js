@@ -86,9 +86,11 @@ function Experiences() {
                     </div>
                 )}
                 {experiences && Object.keys(experiences).map((key) =>
-                    <div key={'experienceCrad-' + key + '-col'} className="col-12 col-lg-6">
-                        <ExperienceCard key={'experienceCrad-' + key} {...experiences[key]} />
-                    </div>
+                    experiences[key].status ? (
+                        <div key={`experienceCard-${key}-col`} className="col-12 col-lg-6">
+                            <ExperienceCard key={`experienceCard-${key}`} {...experiences[key]} />
+                        </div>
+                    ) : null
                 )}
             </div>
         </>
